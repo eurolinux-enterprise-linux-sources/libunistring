@@ -1,6 +1,6 @@
 Name: libunistring
 Version: 0.9.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: System Environment/Libraries
 Summary: GNU Unicode string library
 License: LGPLv3+
@@ -9,6 +9,9 @@ Source0: http://ftp.gnu.org/gnu/libunistring/%{name}-%{version}.tar.gz
 BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Requires(post): info
 Requires(preun): info
+
+# Patches
+Patch0001: 0001-Add-NULL-check-for-malloc-in-two-uninorm-files.patch
 
 %description
 This portable C library implements Unicode string types in three flavours:
@@ -27,6 +30,8 @@ Development files for programs using libunistring.
 
 %prep
 %setup -q
+
+%patch0001 -p1
 
 %build
 %configure --disable-static --disable-rpath
@@ -68,6 +73,9 @@ if [ $1 = 0 ]; then
 fi
 
 %changelog
+* Wed Feb 29 2012 Stephen Gallagher <sgallagh@redhat.com> - 0.9.3-5
+- Resolves: rhbz#732017 - Malloc without NULL check
+
 * Mon Sep 12 2011 Stephen Gallagher <sgallagh@redhat.com> - 0.9.3-4
 - Resolves: rhbz#737592 - %%preun error while uninstalling libunistring-devel
 
