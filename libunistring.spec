@@ -1,6 +1,6 @@
 Name: libunistring
 Version: 0.9.3
-Release: 9%{?dist}
+Release: 7%{?dist}
 Group: System Environment/Libraries
 Summary: GNU Unicode string library
 License: LGPLv3+
@@ -69,12 +69,6 @@ if [ $1 = 0 ]; then
 fi
 
 %changelog
-* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.9.3-9
-- Mass rebuild 2014-01-24
-
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 0.9.3-8
-- Mass rebuild 2013-12-27
-
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.9.3-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
